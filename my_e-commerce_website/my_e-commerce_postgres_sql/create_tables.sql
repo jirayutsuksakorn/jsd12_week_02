@@ -17,7 +17,8 @@ CREATE TABLE Product (
     product_id SERIAL PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    stock_quantity INT NOT NULL DEFAULT 0
+    stock_quantity INT NOT NULL DEFAULT 0,
+    supplier_id INT
 );
 
 -- -----------------------------------------------------
@@ -26,6 +27,7 @@ CREATE TABLE Product (
 CREATE TABLE Orders (
     order_id SERIAL PRIMARY KEY,
     customer_id INT,
+    staff_id INT,
     total_price DECIMAL(10, 2) NOT NULL,
     status VARCHAR(50) DEFAULT 'Pending',
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
